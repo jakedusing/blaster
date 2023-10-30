@@ -45,7 +45,16 @@ private:
 	UParticleSystem* ImpactParticles;
 
 	UPROPERTY(EditAnywhere)
+	UParticleSystem* ImpactObstacleParticles;
+
+	UPROPERTY(EditAnywhere)
+	UParticleSystem* ImpactCharacterParticles;
+
+	UPROPERTY(EditAnywhere)
 	class USoundCue* ImpactSound;
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MultiCast_OnHit(bool bCharacterHit);
 
 public:	
 	

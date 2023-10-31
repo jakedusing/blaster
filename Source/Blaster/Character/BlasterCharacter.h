@@ -15,24 +15,21 @@ class BLASTER_API ABlasterCharacter : public ACharacter, public IInteractWithCro
 
 public:
 	ABlasterCharacter();
-
 	virtual void Tick(float DeltaTime) override;
-
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
 	virtual void PostInitializeComponents() override;
-
 	void PlayFireMontage(bool bAiming);
-
-	UFUNCTION(NetMulticast, Unreliable)
-	void MulticastHit();
-
+	void PlayElimMontage();
 	virtual void OnRep_ReplicatedMovement() override;
+	void Elim();
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastElim();
 
 protected:
 	virtual void BeginPlay() override;
+
+	void UpdateHUDHealth();
 
 	void MoveForward(float Value);
 	void MoveRight(float Value);
@@ -49,6 +46,13 @@ protected:
 	void FireButtonPressed();
 	void FireButtonReleased();
 	void PlayHitReactMontage();
+
+	UFUNCTION()
+	void ReceiveDamage(AActor* DamagedActor, 
+		float Damage, 
+		const UDamageType* DamageType, 
+		class AController* InstigatorController,
+		AActor* DamageCauser);
 
 private:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
@@ -86,6 +90,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = Combat)
 	class UAnimMontage* HitReactMontage;
 
+	UPROPERTY(EditAnywhere, Category = Combat)
+	class UAnimMontage* ElimMontage;
+
 	void HideCameraIfCharacterClose();
 
 	UPROPERTY(EditAnywhere)
@@ -112,6 +119,17 @@ private:
 	UFUNCTION()
 	void OnRep_Health();
 
+	class ABlasterPlayerController* BlasterPlayerController;
+
+	bool bElimmed = false;
+
+	FTimerHandle ElimTimer;
+
+	UPROPERTY(EditDefaultsOnly)
+	float ElimDelay = 3.f;
+
+	void ElimTimerFinished();
+
 public:	
 	void SetOverlappingWeapon(AWeapon* Weapon);
 	bool IsWeaponEquipped();
@@ -123,4 +141,5 @@ public:
 	FVector GetHitTarget() const;
 	FORCEINLINE UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 	FORCEINLINE bool ShouldRotateRootBone() const { return bRotateRootBone; }
+	FORCEINLINE bool IsElimmed() const { return bElimmed; }
 };

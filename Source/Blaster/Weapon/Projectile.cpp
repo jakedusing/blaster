@@ -59,7 +59,7 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 	bool bCharacterHit = false;
 	if (BlasterCharacter)
 	{
-		BlasterCharacter->MulticastHit();
+	//	BlasterCharacter->MulticastHit();
 		bCharacterHit = true;
 		ImpactParticles = ImpactCharacterParticles;
 	}

@@ -31,19 +31,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float Damage = 20.f;
 
-private:
-
 	UPROPERTY(EditAnywhere)
-	class UBoxComponent* CollisionBox;
-
-	UPROPERTY(VisibleAnywhere)
-	class UProjectileMovementComponent* ProjectileMovementComponent;
-
-	UPROPERTY(EditAnywhere)
-	class UParticleSystem* Tracer;
-
-	UPROPERTY()
-	class UParticleSystemComponent* TracerComponent;
+	class UParticleSystem* ImpactCharacterParticles;
 
 	UPROPERTY(EditAnywhere)
 	UParticleSystem* ImpactParticles;
@@ -52,10 +41,21 @@ private:
 	UParticleSystem* ImpactObstacleParticles;
 
 	UPROPERTY(EditAnywhere)
-	UParticleSystem* ImpactCharacterParticles;
+	class USoundCue* ImpactSound;
 
 	UPROPERTY(EditAnywhere)
-	class USoundCue* ImpactSound;
+	class UBoxComponent* CollisionBox;
+
+	UPROPERTY(VisibleAnywhere)
+	class UProjectileMovementComponent* ProjectileMovementComponent;
+
+private:
+
+	UPROPERTY(EditAnywhere)
+	UParticleSystem* Tracer;
+
+	UPROPERTY()
+	class UParticleSystemComponent* TracerComponent;
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MultiCast_OnHit(bool bCharacterHit);

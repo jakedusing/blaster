@@ -25,4 +25,6 @@ protected:
 		FVector NormalImpulse,
 		const FHitResult& Hit
 	) override;
+
+	virtual void BeginPlay() override;
 };

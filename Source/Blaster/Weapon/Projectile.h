@@ -27,6 +27,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	float InitialSpeed = 15000.f;
 
+	float Damage = 20.f;
+
 protected:
 	virtual void BeginPlay() override;
 	void StartDestroyTimer();
@@ -42,9 +44,6 @@ protected:
 		FVector NormalImpulse,
 		const FHitResult& Hit
 	);
-
-	UPROPERTY(EditAnywhere)
-	float Damage = 20.f;
 
 	UPROPERTY(EditAnywhere)
 	class UParticleSystem* ImpactCharacterParticles;

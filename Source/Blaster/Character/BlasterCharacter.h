@@ -93,6 +93,8 @@ protected:
 	void GrenadeButtonPressed();
 	void DropOrDestroyWeapon(AWeapon* Weapon);
 	void DropOrDestroyWeapons();
+	void SetSpawnPoint();
+	void OnPlayerStateInitialized();
 
 	UFUNCTION()
 	void ReceiveDamage(AActor* DamagedActor, 
@@ -392,4 +394,5 @@ public:
 	FORCEINLINE ULagCompensationComponent* GetLagCompensation() const { return LagCompensation; }
 	FORCEINLINE bool IsHoldingTheFlag() const;
 	ETeam GetTeam();
+	void SetHoldingTheFlag(bool bHolding);
 };

@@ -199,6 +199,9 @@ private:
 	EWeaponType WeaponType;
 
 	UPROPERTY(EditAnywhere)
+	EWeaponType WeaponName;
+
+	UPROPERTY(EditAnywhere)
 	ETeam Team;
 
 public:	

@@ -114,6 +114,49 @@ void AWeapon::SetHUDAmmo()
 	}
 }
 
+void AWeapon::SetHUDWeaponType()
+{
+	BlasterOwnerCharacter = BlasterOwnerCharacter == nullptr ? Cast<ABlasterCharacter>(GetOwner()) : BlasterOwnerCharacter;
+	if (BlasterOwnerCharacter)
+	{
+		BlasterOwnerController = BlasterOwnerController == nullptr ? Cast<ABlasterPlayerController>(BlasterOwnerCharacter->Controller) : BlasterOwnerController;
+		if (BlasterOwnerController)
+		{
+			FString WeaponTypeString("");
+			switch (WeaponType)
+			{
+			case EWeaponType::EWT_AssaultRifle:
+				WeaponTypeString = "Assault Rifle";
+				break;
+			case EWeaponType::EWT_Pistol:
+				WeaponTypeString = "Pistol";
+				break;
+			case EWeaponType::EWT_SubmachineGun:
+				WeaponTypeString = "Submachine Gun";
+				break;
+			case EWeaponType::EWT_Shotgun:
+				WeaponTypeString = "Shotgun";
+				break;
+			case EWeaponType::EWT_SniperRifle:
+				WeaponTypeString = "Sniper Rifle";
+				break;
+			case EWeaponType::EWT_GrenadeLauncher:
+				WeaponTypeString = "Grenade Launcher";
+				break;
+			case EWeaponType::EWT_RocketLauncher:
+				WeaponTypeString = "Rocket Launcher";
+				break;
+			case EWeaponType::EWT_Flag:
+				WeaponTypeString = "Flag";
+				break;
+			case EWeaponType::EWT_MAX:
+				break;
+			}
+			BlasterOwnerController->SetHUDWeaponType(WeaponTypeString);
+		}
+	}
+}
+
 void AWeapon::SpendRound()
 {
 	Ammo = FMath::Clamp(Ammo - 1, 0, MagCapacity);
@@ -172,6 +215,7 @@ void AWeapon::OnRep_Owner()
 		if (BlasterOwnerCharacter && BlasterOwnerCharacter->GetEquippedWeapon() && BlasterOwnerCharacter->GetEquippedWeapon() == this)
 		{
 			SetHUDAmmo();
+			SetHUDWeaponType();
 		}
 	}
 	

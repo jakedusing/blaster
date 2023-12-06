@@ -13,9 +13,7 @@ Symmetrical design set up for team matches.  Environment assets from Aleksandrlv
 
   
 ## Buff Pickups
-![BlasterPickUps](https://github.com/jakedusing/blaster/assets/132010022/d851f851-bca4-43a5-8dee-546972737476) 
-
-Left to Right
+![BlasterPickUps](https://github.com/jakedusing/blaster/assets/132010022/d851f851-bca4-43a5-8dee-546972737476)  
 
 ### Health Pickup
 Restores HP to full over 5 seconds.
@@ -28,3 +26,5 @@ Increases Jump velocity for 30 seconds.
 
 ### Speed Pickup
 Increases movement Speed for 30 seconds.
+
+[![Video](https://img.youtube.com/vi/m5c29sH-QEA/maxresdefault.jpg)](https://www.youtube.com/watch?v=m5c29sH-QEA)

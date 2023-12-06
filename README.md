@@ -1,7 +1,13 @@
 # Blaster
-Work in Progress Online Multiplayer Shooter Game
+Online Mutiplayer Shooter made in Unreal Engine 5 and programmed with C++.
+Game can be downloaded at https://jakedusing.itch.io/blaster.
+Steam must be opened when launching game, all players must have Steam location set to the same as the host.
+Host will enter how many players there will be, select the game mode, then click Host.
+All other players leave the box for number of players empty, click on the game mode the Host chose, and click Join.
 
 # Screenshots
+![BlasterMainMenu](https://github.com/jakedusing/blaster/assets/132010022/eb5ff5cb-a5a4-47bd-bc4e-0dc9457b0d23)
+
 ## Multiplayer Map
 ![BlasterMap](https://github.com/jakedusing/blaster/assets/132010022/063703e1-15d0-416f-a9ae-3845440f5e5d)
 Symmetrical design set up for team matches.  Environment assets from Aleksandrlvanov.

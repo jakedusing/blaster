@@ -147,6 +147,7 @@ private:
 	bool bInitializeCarriedAmmo = false;
 	float HUDWeaponAmmo;
 	bool bInitializeWeaponAmmo = false;
+	bool bInitializeWeaponName = false;
 
 	float HighPingRunningTime = 0.f;
 

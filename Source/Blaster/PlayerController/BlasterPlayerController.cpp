@@ -14,6 +14,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Blaster/BlasterComponents/CombatComponent.h"
 #include "Blaster/GameState/BlasterGameState.h"
+#include "Blaster/PlayerController/BlasterPlayerController.h"
 #include "Components/Image.h"
 #include "Blaster/HUD/ReturnToMainMenu.h"
 #include "Blaster/BlasterTypes/Announcement.h"
@@ -547,6 +548,15 @@ void ABlasterPlayerController::PollInit()
 				if (BlasterCharacter && BlasterCharacter->GetCombat())
 				{
 					if (bInitializeGrenades) SetHUDGrenades(BlasterCharacter->GetCombat()->GetGrenades());
+				}
+
+				if (bShowTeamScores)
+				{
+					InitTeamScores();
+				}
+				else
+				{
+					HideTeamScores();
 				}
 			}
 		}

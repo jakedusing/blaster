@@ -27,4 +27,9 @@ Increases Jump velocity for 30 seconds.
 ### Speed Pickup
 Increases movement Speed for 30 seconds.
 
+
+## Video of Weapon fire and Pickups
 [![Video](https://img.youtube.com/vi/m5c29sH-QEA/maxresdefault.jpg)](https://www.youtube.com/watch?v=m5c29sH-QEA)
+
+## Video of Gameplay
+[![Video](https://img.youtube.com/vi/NwBfEmHT-3w/maxresdefault.jpg)](https://www.youtube.com/watch?v=NwBfEmHT-3w)
